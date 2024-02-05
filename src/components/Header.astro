@@ -1,0 +1,53 @@
+---
+import AnchorHeader from "./AnchorHeader.astro";
+---
+
+<header
+    class={`
+     flex flex-wrap items-center justify-between
+     w-full px-28 py-4
+     fixed bg-black/90 z-10 backdrop-blur`}
+>
+    <img
+        class="rounded-full size-12"
+        src="https://avatars.githubusercontent.com/u/113955426?v=4"
+        alt="Foto Ignacio Varela"
+    />
+
+    <button
+        data-collapse-toggle="navbar-default"
+        type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center border border-gray-500 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100"
+        aria-controls="navbar-default"
+        aria-expanded="false"
+    >
+        <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
+            <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"></path>
+        </svg>
+    </button>
+
+    <nav
+        class={`
+        absolute top-16 right-0 left-0 mx-auto back hidden w-11/12 bg-black/95 my-4
+        lg:static lg:block lg:w-auto lg:mx-0 lg:bg-transparent
+        `}
+        id="navbar-default"
+    >
+        <ul
+            class={`
+                flex flex-col p-4   border border-gray-100 rounded-lg  rtl:space-x-reverse 
+                lg:p-0 lg:flex-row lg:gap-x-8  lg:mt-0 lg:border-0 
+                `}
+        >
+            <!-- <AnchorHeader href="#top">Inico</AnchorHeader> -->
+            <AnchorHeader href="#top">Sobre Mi</AnchorHeader>
+            <AnchorHeader href="#projects">Proyectos</AnchorHeader>
+            <AnchorHeader href="#contact">Contacto</AnchorHeader>
+        </ul>
+    </nav>
+</header>

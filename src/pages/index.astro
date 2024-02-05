@@ -1,9 +1,176 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SocialPill from "../components/SocialPill.astro";
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
+import GitHubIcon from "../components/icons/GitHubIcon.astro";
+import EmailIcon from "../components/icons/EmailIcon.astro";
+import CurriculumIcon from "../components/icons/CurriculumIcon.astro";
+import SectionContainer from "../components/SectionContainer.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<section></section>
+<Layout title="Ignacio Varela - Desarrolador y Programador">
+
+	<main class="w-full px-11">
+		<SectionContainer id="about" class="content-section py-80">
+			<h1
+				class="text-white text-4xl pb-4 sm:text-5xl font-bold sm:pb-10 text-wrap"
+			>
+				<span class="whitespace-nowrap"> &lt;Hola Mundo/>,</span>
+				<span class="text-indigo-400 whitespace-nowrap">
+					Soy Ignacio</span
+				>
+			</h1>
+
+			<h2 class="text-xl sm:text-2xl text-pretty pb-6 text-white/80">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+				tenetur accusamus, quia similique aut facilis excepturi ut
+				aspernatur et natus adipisci quas animi repudiandae iusto odit
+				eligendi. Explicabo, eos tempora.
+			</h2>
+
+			<nav class="flex gap-4 flex-wrap">
+				<SocialPill href="mailto:ignaciovarela7765@gmail.com">
+					<EmailIcon class="size-6" /> ignaciovarela7765@gmail.com
+				</SocialPill>
+
+				<SocialPill
+					href="https://www.linkedin.com/in/ignacio-varela-0a963b296/"
+				>
+					<LinkedInIcon class="size-6" /> LinkedIn
+				</SocialPill>
+
+				<SocialPill href="https://github.com/Igna-99">
+					<GitHubIcon class="size-6" /> GitHub
+				</SocialPill>
+
+				<SocialPill href="../../src/CV.pdf">
+					<CurriculumIcon class="size-6" /> Curriculum
+				</SocialPill>
+			</nav>
+		</SectionContainer>
+<!-- 
+		<SectionContainer id="projects" class="content-section py-80">
+			<h1
+				class="text-white text-4xl pb-4 sm:text-5xl font-bold sm:pb-10 text-wrap"
+			>
+				<span class="whitespace-nowrap"> &lt;Hola Mundo/>,</span>
+				<span class="text-indigo-400 whitespace-nowrap">
+					Soy Ignacio</span
+				>
+			</h1>
+
+			<h2 class="text-xl sm:text-2xl text-pretty pb-6 text-white/80">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+				tenetur accusamus, quia similique aut facilis excepturi ut
+				aspernatur et natus adipisci quas animi repudiandae iusto odit
+				eligendi. Explicabo, eos tempora.
+			</h2>
+
+			<nav class="flex gap-4 flex-wrap">
+				<SocialPill href="mailto:ignaciovarela7765@gmail.com">
+					<EmailIcon class="size-6" /> ignaciovarela7765@gmail.com
+				</SocialPill>
+
+				<SocialPill
+					href="https://www.linkedin.com/in/ignacio-varela-0a963b296/"
+				>
+					<LinkedInIcon class="size-6" /> LinkedIn
+				</SocialPill>
+
+				<SocialPill href="https://github.com/Igna-99">
+					<GitHubIcon class="size-6" /> GitHub
+				</SocialPill>
+
+				<SocialPill href="../../src/CV.pdf">
+					<CurriculumIcon class="size-6" /> Curriculum
+				</SocialPill>
+			</nav>
+		</SectionContainer>
+
+		<SectionContainer id="contact" class="content-section py-80">
+			<h1
+				class="text-white text-4xl pb-4 sm:text-5xl font-bold sm:pb-10 text-wrap"
+			>
+				<span class="whitespace-nowrap"> &lt;Hola Mundo/>,</span>
+				<span class="text-indigo-400 whitespace-nowrap">
+					Soy Ignacio</span
+				>
+			</h1>
+
+			<h2 class="text-xl sm:text-2xl text-pretty pb-6 text-white/80">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+				tenetur accusamus, quia similique aut facilis excepturi ut
+				aspernatur et natus adipisci quas animi repudiandae iusto odit
+				eligendi. Explicabo, eos tempora.
+			</h2>
+
+			<nav class="flex gap-4 flex-wrap">
+				<SocialPill href="mailto:ignaciovarela7765@gmail.com">
+					<EmailIcon class="size-6" /> ignaciovarela7765@gmail.com
+				</SocialPill>
+
+				<SocialPill
+					href="https://www.linkedin.com/in/ignacio-varela-0a963b296/"
+				>
+					<LinkedInIcon class="size-6" /> LinkedIn
+				</SocialPill>
+
+				<SocialPill href="https://github.com/Igna-99">
+					<GitHubIcon class="size-6" /> GitHub
+				</SocialPill>
+
+				<SocialPill href="../../src/CV.pdf">
+					<CurriculumIcon class="size-6" /> Curriculum
+				</SocialPill>
+			</nav>
+		</SectionContainer> -->
 	</main>
+
 </Layout>
+
+<script>
+	const sections = document.querySelectorAll(".content-section");
+
+	const anchorsHeader = document.querySelectorAll("header nav ul a");
+
+	const observer = new IntersectionObserver(
+		(entradas, observer) => {
+			entradas.forEach((entrada) => {
+				if (entrada.isIntersecting) {
+					let id: string;
+					if (entrada.target.id == "about") {
+						id = "#top";
+					} else {
+						id = "#" + entrada.target.id;
+					}
+
+					history.pushState({}, "", id);
+
+					anchorsHeader.forEach((anchor) => {
+						anchor.classList.remove(
+							"underline",
+							"underline-offset-8",
+						);
+
+						const href = anchor.getAttribute("href");;
+						if (href === id) {
+							anchor.classList.add(
+								"underline",
+								"underline-offset-8",
+							);
+						} else {
+						}
+					});
+				}
+			});
+		},
+		{
+			threshold: 1,
+			rootMargin: "0px 0px 30% 0px",
+		},
+	);
+
+	sections.forEach((section) => {
+		observer.observe(section);
+	});
+</script>
