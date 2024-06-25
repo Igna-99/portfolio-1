@@ -5,7 +5,7 @@ import AnchorHeader from "./AnchorHeader.astro";
 <header
     class={`
      flex flex-wrap items-center justify-between
-     w-full px-28 py-4
+     w-full px-10  py-7 lg:px-28
      fixed bg-black/90 z-10 backdrop-blur`}
 >
     <img
@@ -15,11 +15,9 @@ import AnchorHeader from "./AnchorHeader.astro";
     />
 
     <button
-        data-collapse-toggle="navbar-default"
+        id="btn"
         type="button"
         class="inline-flex items-center p-2 w-10 h-10 justify-center border border-gray-500 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100"
-        aria-controls="navbar-default"
-        aria-expanded="false"
     >
         <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
             <path
@@ -33,7 +31,7 @@ import AnchorHeader from "./AnchorHeader.astro";
 
     <nav
         class={`
-        absolute top-16 right-0 left-0 mx-auto back hidden w-11/12 bg-black/95 my-4
+        absolute top-24 right-0 left-0 mx-auto back hidden w-11/12 bg-black/95
         lg:static lg:block lg:w-auto lg:mx-0 lg:bg-transparent
         `}
         id="navbar-default"
@@ -51,3 +49,22 @@ import AnchorHeader from "./AnchorHeader.astro";
         </ul>
     </nav>
 </header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const anchorsHeader = document.querySelectorAll(" nav ul a");
+        const navbarDefault = document.getElementById("navbar-default");
+
+        const btn = document.getElementById("btn");
+
+        anchorsHeader.forEach((anchor) => {
+            anchor.addEventListener("click", function () {
+                navbarDefault?.classList.toggle("hidden");
+            });
+        });
+
+        btn?.addEventListener("click", function () {
+            navbarDefault?.classList.toggle("hidden");
+        });
+    });
+</script>

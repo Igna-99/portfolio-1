@@ -11,7 +11,44 @@ import SectionContainer from "../components/SectionContainer.astro";
 <Layout title="Ignacio Varela - Desarrolador y Programador">
 
 	<main class="w-full px-11">
-		<SectionContainer id="about" class="content-section py-80">
+		<SectionContainer id="about" class="content-section py-40 lg:py-80">
+			<h1
+				class="text-white text-4xl pb-4 sm:text-5xl font-bold sm:pb-10 text-wrap"
+			>
+				<span class="whitespace-nowrap"> &lt;Hola Mundo/>,</span>
+				<span class="text-indigo-400 whitespace-nowrap">
+					Soy Ignacio</span
+				>
+			</h1>
+
+			<h2 class="text-xl sm:text-2xl text-pretty pb-6 text-white/80">
+				Programador Trainee con conocimientos en varios lenguajes de
+				programación, así como experiencia en el desarrollo de proyectos
+				académicos. Graduado como analista de sistemas en ORT argentina.
+			</h2>
+
+			<nav class="flex gap-4 flex-wrap">
+				<SocialPill href="mailto:ignaciovarela7765@gmail.com">
+					<EmailIcon class="size-6" /> ignaciovarela7765@gmail.com
+				</SocialPill>
+
+				<SocialPill
+					href="https://www.linkedin.com/in/ignacio-varela-0a963b296/"
+				>
+					<LinkedInIcon class="size-6" /> LinkedIn
+				</SocialPill>
+
+				<SocialPill href="https://github.com/Igna-99">
+					<GitHubIcon class="size-6" /> GitHub
+				</SocialPill>
+
+				<SocialPill href="../../src/CV.pdf">
+					<CurriculumIcon class="size-6" /> Curriculum
+				</SocialPill>
+			</nav>
+		</SectionContainer>
+
+		<SectionContainer id="projects" class="content-section py-40 lg:py-80">
 			<h1
 				class="text-white text-4xl pb-4 sm:text-5xl font-bold sm:pb-10 text-wrap"
 			>
@@ -48,8 +85,8 @@ import SectionContainer from "../components/SectionContainer.astro";
 				</SocialPill>
 			</nav>
 		</SectionContainer>
-<!-- 
-		<SectionContainer id="projects" class="content-section py-80">
+
+		<SectionContainer id="contact" class="content-section py-40 lg:py-80">
 			<h1
 				class="text-white text-4xl pb-4 sm:text-5xl font-bold sm:pb-10 text-wrap"
 			>
@@ -86,44 +123,6 @@ import SectionContainer from "../components/SectionContainer.astro";
 				</SocialPill>
 			</nav>
 		</SectionContainer>
-
-		<SectionContainer id="contact" class="content-section py-80">
-			<h1
-				class="text-white text-4xl pb-4 sm:text-5xl font-bold sm:pb-10 text-wrap"
-			>
-				<span class="whitespace-nowrap"> &lt;Hola Mundo/>,</span>
-				<span class="text-indigo-400 whitespace-nowrap">
-					Soy Ignacio</span
-				>
-			</h1>
-
-			<h2 class="text-xl sm:text-2xl text-pretty pb-6 text-white/80">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-				tenetur accusamus, quia similique aut facilis excepturi ut
-				aspernatur et natus adipisci quas animi repudiandae iusto odit
-				eligendi. Explicabo, eos tempora.
-			</h2>
-
-			<nav class="flex gap-4 flex-wrap">
-				<SocialPill href="mailto:ignaciovarela7765@gmail.com">
-					<EmailIcon class="size-6" /> ignaciovarela7765@gmail.com
-				</SocialPill>
-
-				<SocialPill
-					href="https://www.linkedin.com/in/ignacio-varela-0a963b296/"
-				>
-					<LinkedInIcon class="size-6" /> LinkedIn
-				</SocialPill>
-
-				<SocialPill href="https://github.com/Igna-99">
-					<GitHubIcon class="size-6" /> GitHub
-				</SocialPill>
-
-				<SocialPill href="../../src/CV.pdf">
-					<CurriculumIcon class="size-6" /> Curriculum
-				</SocialPill>
-			</nav>
-		</SectionContainer> -->
 	</main>
 
 </Layout>
